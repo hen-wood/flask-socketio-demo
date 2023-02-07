@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="{{url_for('static', filename='script.js')}}"></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.0/socket.io.js"
+			integrity="sha512-rwu37NnL8piEGiFhe2c5j4GahN+gFsIn9k/0hkRY44iz0pc81tBNaUN56qF8X4fy+5pgAAgYi2C9FXdetne5sQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+		<title>Document</title>
+	</head>
+	<body>
+		<form action="">
+			<input type="text" name="message" id="message" placeholder="message" />
+			<button id="submit" type="submit">Submit</button>
+		</form>
+		<div id="messages">
+			{% for message in messages %}
+			<div>
+				<h3>{{message.userId}}</h3>
+				<p>{{message.content}}</p>
+				<p>{{message.time}}</p>
+			</div>
+			{% endfor %}
+		</div>
+	</body>
+</html>
